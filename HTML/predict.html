@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Dashboard | Predict</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/predict.css">
+</head>
+<body>
+
+    <aside class="sidebar collapsed" id="sidebar">
+        <button class="sidebar-toggle" id="toggleSidebar">☰</button>
+        <div class="sidebar-top">
+            <a href="profile.htm" class="profile-link">
+                <div class="profile-section">
+                    <div class="profile-pic"></div>
+                    <div class="profile-info">
+                        <p class="welcome-text">WELCOME,</p>
+                        <div class="username" id="display-username">PlayerOne</div>
+                    </div>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item"><span>Home</span></a>
+                <a href="genres.html" class="nav-item"><span>Genres</span></a>
+                <a href="predict.html" class="nav-item active"><span>Predict</span></a>
+            </nav>
+        </div>
+        <button class="logout-btn" id="logoutBtn"><span>Logout</span></button>
+    </aside>
+
+    <main class="main-content">
+
+        <!-- ☰ hamburger injected here by sidebar.js on mobile/tablet -->
+        <header class="main-header predict-mobile-header">
+        </header>
+
+        <section class="page active">
+            <div class="predict-container">
+                <div class="header-text">
+                    <h2>Hardware <span>Check</span></h2>
+                </div>
+
+                <form class="config-form" id="configForm" autocomplete="off">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>CPU Model</label>
+                            <input type="text" id="cpu" placeholder="e.g. i7 13700K" autocomplete="off" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Graphics Card</label>
+                            <input type="text" id="gpu" placeholder="e.g. RTX 4070" autocomplete="off" required>
+                        </div>
+                        <div class="input-group">
+                            <label>RAM</label>
+                            <input type="text" id="ram" placeholder="e.g. 16GB" autocomplete="off" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Target Game</label>
+                            <input type="text" id="game" placeholder="Search a game..." autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="predict-btn">Analyze Performance</button>
+                    </div>
+                </form>
+
+                <!-- ANALYSIS RESULT BOX -->
+                <div id="resultArea" class="result-box hidden">
+                    <h3>Analysis Complete</h3>
+                    <div id="resultText">Your system meets the requirements!</div>
+                </div>
+
+                <!-- DYNAMIC RESULTS -->
+                <div id="dynamicResults" class="hidden">
+
+                    <div class="section-header">
+                        <h3>Searched <span>Game</span></h3>
+                    </div>
+                    <div id="searchedResult" class="searched-result-grid"></div>
+
+                    <div class="section-header" style="margin-top: 50px;">
+                        <h3>Related <span>Games</span></h3>
+                    </div>
+                    <div id="relatedGamesGrid" class="games-grid-predict"></div>
+
+                    <div class="section-header" style="margin-top: 50px;">
+                        <h3>Games You <span>Can Run</span></h3>
+                    </div>
+                    <div id="runnableGamesGrid" class="games-grid-predict"></div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../JS/sidebar.js"></script>
+    <script src="../JS/predict.js"></script>
+</body>
+</html>

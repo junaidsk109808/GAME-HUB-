@@ -1,0 +1,273 @@
+/* =========================================
+    1. AUTH PAGE LAYOUT
+   ========================================= */
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top right, #1e1b4b, #020617);
+    padding: 20px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+
+.auth-card {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.auth-card.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* =========================================
+    2. TYPOGRAPHY & HEADER
+   ========================================= */
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: white;
+}
+
+.auth-header h2 span {
+    color: #a855f7;
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.auth-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 8px;
+}
+
+/* =========================================
+    3. INPUT FIELDS & BUTTONS
+   ========================================= */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #f2eff6;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-left: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 20px;
+    border-radius: 14px;
+    color: white;
+    outline: none;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+    font-size: 1rem; /* prevents iOS zoom on focus */
+}
+
+.input-group input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    background: rgba(15, 23, 42, 1);
+}
+
+.auth-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+    filter: brightness(1.1);
+}
+
+/* =========================================
+    4. FOOTER & LINKS
+   ========================================= */
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.auth-footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: #a855f7;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    margin: 20px 0;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.divider span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #020617;
+    padding: 0 10px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.guest-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--text-muted) !important;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.guest-link:hover {
+    opacity: 1;
+    color: white !important;
+}
+
+/* =========================================
+    5. RESPONSIVE
+   ========================================= */
+
+/* ── Tablet (≤ 768px) ── */
+@media (max-width: 768px) {
+    .auth-body {
+        padding: 16px;
+        align-items: flex-start;
+        padding-top: 40px;
+    }
+
+    .auth-wrapper {
+        max-width: 100%;
+    }
+
+    .auth-card {
+        padding: 30px 24px;
+        border-radius: 22px;
+    }
+
+    .auth-header h2 {
+        font-size: 1.9rem;
+    }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+    .auth-body {
+        padding: 12px;
+        padding-top: 30px;
+        /* center vertically only if card fits */
+        align-items: center;
+        min-height: 100dvh; /* use dvh so mobile browser bar is accounted for */
+    }
+
+    .auth-card {
+        padding: 26px 18px;
+        border-radius: 20px;
+        /* slightly softer shadow on small screens */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .auth-header {
+        margin-bottom: 22px;
+    }
+
+    .auth-header h2 {
+        font-size: 1.65rem;
+    }
+
+    .auth-header p {
+        font-size: 0.88rem;
+    }
+
+    .input-group {
+        margin-bottom: 16px;
+    }
+
+    .input-group input {
+        padding: 13px 16px;
+        border-radius: 12px;
+    }
+
+    .auth-btn {
+        padding: 14px;
+        font-size: 0.95rem;
+        border-radius: 12px;
+    }
+
+    .auth-footer p {
+        font-size: 0.85rem;
+    }
+
+    .guest-link {
+        font-size: 0.8rem;
+    }
+}
+
+/* ── Very small phones (≤ 360px) ── */
+@media (max-width: 360px) {
+    .auth-card {
+        padding: 22px 14px;
+        border-radius: 18px;
+    }
+
+    .auth-header h2 {
+        font-size: 1.45rem;
+    }
+
+    .input-group input {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .auth-btn {
+        padding: 13px;
+        font-size: 0.9rem;
+    }
+}

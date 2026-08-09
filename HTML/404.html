@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub | 404 - Page Not Found</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #020617;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #6366f1;
+            border-radius: 50%;
+            animation: float linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+        }
+
+        /* Glowing grid lines */
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 40px;
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+
+        /* Glitchy 404 number */
+        .error-code {
+            font-size: clamp(120px, 20vw, 220px);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -10px;
+            position: relative;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(99,102,241,0.4);
+            animation: glitch 3s infinite;
+            margin-bottom: 10px;
+        }
+
+        .error-code::before,
+        .error-code::after {
+            content: '404';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            -webkit-text-stroke: 2px transparent;
+        }
+
+        .error-code::before {
+            color: #6366f1;
+            clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+            animation: glitch-top 3s infinite;
+        }
+
+        .error-code::after {
+            color: #a855f7;
+            clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+            animation: glitch-bottom 3s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-3px, 1px); }
+            94% { transform: translate(3px, -1px); }
+            96% { transform: translate(-2px, 2px); }
+            98% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch-top {
+            0%, 90%, 100% { transform: translate(0); opacity: 1; }
+            92% { transform: translate(4px, 0); opacity: 0.8; }
+            94% { transform: translate(-4px, 0); opacity: 0.6; }
+            96% { transform: translate(2px, 0); opacity: 1; }
+        }
+
+        @keyframes glitch-bottom {
+            0%, 90%, 100% { transform: translate(0); opacity: 1; }
+            92% { transform: translate(-4px, 0); opacity: 0.8; }
+            94% { transform: translate(4px, 0); opacity: 0.6; }
+            96% { transform: translate(-2px, 0); opacity: 1; }
+        }
+
+        /* Game controller icon */
+        .controller-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(99,102,241,0.6));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .error-title {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .error-subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 450px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .error-subtitle span {
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        /* Action buttons */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(99,102,241,0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            padding: 14px 32px;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(99,102,241,0.3);
+            border-radius: 12px;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: rgba(99,102,241,0.6);
+            color: #fff;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Decorative glow orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: 0;
+            animation: pulse-orb 6s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px; height: 400px;
+            background: #6366f1;
+            top: -100px; left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px; height: 300px;
+            background: #a855f7;
+            bottom: -50px; right: -50px;
+            animation-delay: 3s;
+        }
+
+        @keyframes pulse-orb {
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.2); opacity: 0.25; }
+        }
+
+        /* Scanline effect */
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.03) 2px,
+                rgba(0,0,0,0.03) 4px
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background effects -->
+    <div class="bg-particles" id="particles"></div>
+    <div class="grid-bg"></div>
+    <div class="scanlines"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="container">
+        <div class="controller-icon">🎮</div>
+        <div class="error-code">404</div>
+        <h1 class="error-title">Level Not Found</h1>
+        <p class="error-subtitle">
+            Looks like this page <span>respawned</span> somewhere else. 
+            The level you're looking for doesn't exist or has been moved.
+        </p>
+        <div class="btn-group">
+            <a href="index.html" class="btn-primary">🏠 Back to Home</a>
+            <a href="genres.html" class="btn-secondary">🎲 Browse Games</a>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 40; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = p.style.height = (Math.random() * 3 + 1) + 'px';
+            p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+            p.style.animationDelay = (Math.random() * 10) + 's';
+            p.style.background = Math.random() > 0.5 ? '#6366f1' : '#a855f7';
+            container.appendChild(p);
+        }
+    </script>
+</body>
+</html>

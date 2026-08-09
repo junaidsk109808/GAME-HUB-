@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub | Authentication</title>
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body class="auth-body">
+
+    <div class="auth-wrapper">
+        <div id="login-card" class="auth-card">
+            <div class="auth-header">
+                <h2>Welcome <span>Back</span></h2>
+                <p>Login to sync your predictions.</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="player@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPass" placeholder="••••••••" required>
+                </div>
+                <p id="loginError" style="color:#ef4444; text-align:center; margin-top:10px;"></p>
+                <button type="submit" class="auth-btn">Log In</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>New here? <a href="#" id="showSignup">Create an account</a></p>
+                <div class="divider"><span>OR</span></div>
+                <a href="index.html" class="guest-link">Skip & Continue as Guest &rarr;</a>
+            </div>
+        </div>
+
+        <div id="signup-card" class="auth-card hidden">
+            <div class="auth-header">
+                <h2>Create <span>Account</span></h2>
+                <p>Join the elite gaming community.</p>
+            </div>
+            
+            <form id="signupForm">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="signupUser" placeholder="ProGamer123" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="signupEmail" placeholder="player@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="signupPass" placeholder="••••••••" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmPass" placeholder="••••••••" required>
+                </div>
+                <p id="signupError" style="color:#ef4444; text-align:center; margin-top:10px;"></p>
+                <p id="signupSuccess" style="color:#10b981; text-align:center; margin-top:10px;"></p>
+                <button type="submit" class="auth-btn">Sign Up</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="#" id="showLogin">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/login.js"></script>
+</body>
+</html>

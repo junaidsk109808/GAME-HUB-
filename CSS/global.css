@@ -1,0 +1,280 @@
+/* =========================================
+    GLOBAL THEME
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.5);
+    --secondary: #a855f7;
+    --bg-dark: #020617;
+    --bg-panel: rgba(30, 41, 59, 0.6);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+    --glass: blur(16px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: radial-gradient(circle at top right, #1e1b4b 0%, #0f172a 40%, #020617 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* NO display:flex — sidebar is fixed, never in document flow */
+}
+
+/* =========================================
+    SIDEBAR — always fixed, never in flow
+========================================= */
+.sidebar {
+    width: 280px;
+    background: rgba(15, 23, 42, 0.98);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 99999;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* ── DESKTOP COLLAPSED ── */
+.sidebar.collapsed {
+    width: 60px;
+    background: transparent !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    padding: 20px 0;
+}
+
+.sidebar.collapsed .profile-section,
+.sidebar.collapsed .nav-links,
+.sidebar.collapsed .logout-btn {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .sidebar-toggle {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    align-self: center;
+    margin-left: 0 !important;
+}
+
+.sidebar:not(.collapsed) .profile-section,
+.sidebar:not(.collapsed) .nav-links,
+.sidebar:not(.collapsed) .logout-btn,
+.sidebar:not(.collapsed) .sidebar-toggle {
+    opacity: 1;
+    transition: opacity 0.3s ease 0.1s;
+}
+
+/* ── MOBILE — hidden off-screen by default ── */
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%) !important;
+        width: 280px !important;
+        background: rgba(15, 23, 42, 0.98) !important;
+        border-right: 1px solid var(--border) !important;
+        padding: 24px !important;
+    }
+
+    .sidebar.open {
+        transform: translateX(0) !important;
+    }
+
+    /* Show all content when open */
+    .sidebar .profile-section,
+    .sidebar .nav-links,
+    .sidebar .logout-btn,
+    .sidebar .sidebar-toggle {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* =========================================
+    SIDEBAR TOGGLE BUTTON
+========================================= */
+.sidebar-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    padding: 0;
+    color: var(--text-muted);
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.sidebar-toggle:hover { color: #fff; }
+
+/* =========================================
+    PROFILE SECTION
+========================================= */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f2f1f4, #6366f1);
+    border-radius: 50%;
+    border: 2px solid white;
+    flex-shrink: 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-text {
+    color: #f2eff6 !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.username {
+    color: #f2eff6 !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* =========================================
+    NAVIGATION
+========================================= */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    padding: 14px 20px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(99, 102, 241, 0.1);
+    color: white;
+    border-left: 4px solid var(--primary);
+}
+
+.logout-btn {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    color: #818cf8;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.logout-btn:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: #a855f7;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+    MAIN CONTENT
+    Sidebar is fixed so only desktop needs margin
+========================================= */
+.main-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Desktop: push right to make room for sidebar */
+@media (min-width: 1025px) {
+    .main-content {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+        max-width: calc(100% - 280px);
+    }
+}
+
+/* Mobile: always full width, no margin */
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px 16px;
+    }
+}
+
+/* =========================================
+    PROFILE LINK
+========================================= */
+.profile-link {
+    text-decoration: none;
+    color: inherit;
+}
+/* Hide the hamburger menu on PC version */
+@media (min-width: 1025px) {
+    #headerMenuBtn, .header-menu-btn {
+        display: none !important;
+    }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub | Game Details</title>
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/game_details.css">
+</head>
+<body>
+
+    <aside class="sidebar collapsed" id="sidebar">
+        <button class="sidebar-toggle" id="toggleSidebar">☰</button>
+        <div class="sidebar-top">
+            <a href="profile.htm" class="profile-link">
+                <div class="profile-section">
+                    <div class="profile-pic"></div>
+                    <div class="profile-info">
+                        <p class="welcome-text">WELCOME</p>
+                        <div class="username" id="display-username">PlayerOne</div>
+                    </div>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item"><span>Home</span></a>
+                <a href="genres.html" class="nav-item"><span>Genres</span></a>
+                <a href="predict.html" class="nav-item"><span>Predict</span></a>
+            </nav>
+        </div>
+        <button class="logout-btn" id="logoutBtn"><span>Logout</span></button>
+    </aside>
+
+    <main class="main-content no-padding">
+
+        <header class="main-header mobile-game-header">
+            </header>
+
+        <div class="game-hero-banner" id="gameHero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="game-logo"><h1 id="gameTitle">Loading...</h1></div>
+                <div class="hero-meta">
+                    <span class="status-badge" id="game-rating">★ --</span>
+                </div>
+                <div class="hero-actions">
+                    <button class="primary-btn">Play Now</button>
+                    <button class="secondary-btn" onclick="window.location.href='predict.html'">Analyze Specs</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-details-grid">
+            
+            <div class="details-main">
+                <section id="aboutSection" class="content-section">
+                    <h3>About the Game</h3>
+                    <p class="game-desc" id="game-description">Fetching details...</p>
+                </section>
+
+                <div id="midAdBox" class="content-section ad-container">
+                    <div class="ad-box">
+                        <span class="ad-label">Advertisement</span>
+                    </div>
+                </div>
+
+                <section class="content-section" id="mediaSection" style="display:none;">
+                    <h3>Videos &amp; Screenshots</h3>
+                    <div class="media-strip" id="mediaStrip"></div>
+                </section>
+
+                <section class="content-section" id="reqSection">
+                    <h3>System Requirements</h3>
+                    <table class="req-table" id="reqTable">
+                        <tr><th>Spec</th><th>Minimum</th><th>Recommended</th></tr>
+                    </table>
+                </section>
+
+                <section class="content-section" id="relatedSection" style="display:none;">
+                    <h3>Related Games</h3>
+                    <div class="related-scroll" id="relatedGames"></div>
+                </section>
+
+                <section class="content-section" id="reviewsSection">
+                    <h3>Review Videos</h3>
+                    <div id="reviewsList">
+                        <p style="color: #64748b;">No reviews yet.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="details-sidebar">
+                <div class="info-card">
+                    <h4>Developer Info</h4>
+                    <ul class="info-list">
+                        <li><strong>Developer</strong><span id="game-dev">Loading...</span></li>
+                        <li><strong>Release Date</strong><span id="game-release">--</span></li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Rating Stats</h4>
+                    <ul class="info-list">
+                        <li><strong>Total Reviews</strong><span id="rating-count">--</span></li>
+                    </ul>
+                </div>
+
+                <div class="info-card" id="tagsCard" style="display:none;">
+                    <h4>Tags</h4>
+                    <div class="tags-container" id="tagsList"></div>
+                </div>
+
+                <div class="info-card" id="gameplayCard" style="display:none;">
+                    <h4>Gameplay</h4>
+                    <div id="gameplayLinks"></div>
+                </div>
+
+                <div id="adCard" class="info-card">
+                    <div class="ad-box">
+                        <span class="ad-label">Advertisement</span>
+                    </div>
+                </div>
+            </div>
+
+        </div> </main>
+
+    <div class="media-modal" id="mediaModal" style="display:none;">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content" id="modalContent"></div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <script src="../JS/sidebar.js"></script>
+    <script src="../JS/game_details.js"></script>
+</body>
+</html>

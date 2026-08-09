@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub | Genres</title>
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/genres.css">
+</head>
+<body>
+
+    <aside class="sidebar collapsed" id="sidebar">
+        <button class="sidebar-toggle" id="toggleSidebar">☰</button>
+        <div class="sidebar-top">
+            <a href="profile.html" class="profile-link">
+                <div class="profile-section">
+                    <div class="profile-pic"></div>
+                    <div class="profile-info">
+                        <p class="welcome-text">WELCOME</p>
+                        <div class="username" id="display-username">PlayerOne</div>
+                    </div>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item"><span>Home</span></a>
+                <a href="genres.html" class="nav-item active"><span>Genres</span></a>
+                <a href="predict.html" class="nav-item"><span>Predict</span></a>
+            </nav>
+        </div>
+        <button class="logout-btn" id="logoutBtn"><span>Logout</span></button>
+    </aside>
+
+    <main class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" id="genreSearch" placeholder="Search genres...">
+                <button class="search-btn">🔍</button>
+            </div>
+        </header>
+
+        <section class="page active">
+            <div class="header-text">
+              
+            </div>
+            <div class="genre-grid" id="genreGrid">
+                <!-- Skeletons while loading -->
+                <div class="genre-card skeleton"></div>
+                <div class="genre-card skeleton"></div>
+                <div class="genre-card skeleton"></div>
+                <div class="genre-card skeleton"></div>
+                <div class="genre-card skeleton"></div>
+                <div class="genre-card skeleton"></div>
+            </div>
+        </section>
+
+        <!-- Games Modal -->
+        <div class="genre-modal" id="genreModal" style="display:none;">
+            <div class="modal-backdrop" id="modalBackdrop"></div>
+            <div class="modal-panel" id="modalPanel">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Genre Games</h2>
+                    <button class="modal-close-btn" id="modalClose">✕</button>
+                </div>
+                <div class="modal-games-grid" id="modalGamesGrid"></div>
+                <div class="modal-pagination" id="modalPagination"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../JS/sidebar.js"></script>
+    <script src="../JS/genres.js"></script>
+</body>
+</html>

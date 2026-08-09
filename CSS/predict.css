@@ -1,0 +1,522 @@
+/* =========================================
+    1. PREDICT FORM & ULTIMATE INPUT THEME
+   ========================================= */
+.predict-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.config-form {
+    background: rgba(30, 41, 59, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 45px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    margin-top: 40px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #a855f7;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 18px 22px;
+    border-radius: 16px;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #a855f7;
+    font-size: 1rem;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    appearance: none;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.input-group input:focus {
+    border: 1px solid #6366f1 !important;
+    border-bottom: 1px solid #6366f1 !important;
+    background: rgba(15, 23, 42, 0.9) !important;
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.3) !important;
+    transform: translateY(-2px);
+    outline: none !important;
+}
+
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus,
+.input-group input:-internal-autofill-selected {
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
+    box-shadow: 0 0 0px 1000px #0f172a inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.predict-btn {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.4s;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+}
+
+.predict-btn:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.6);
+    filter: brightness(1.2);
+}
+
+/* =========================================
+    2. MOBILE HEADER — hamburger for predict page
+   ========================================= */
+.predict-mobile-header {
+    display: none;
+    align-items: center;
+    padding: 10px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    min-height: 52px;
+    margin-bottom: 0;
+}
+
+/* =========================================
+    3. AUTOCOMPLETE DROPDOWN
+   ========================================= */
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1e293b;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    margin-top: 6px;
+    z-index: 9999;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.autocomplete-item {
+    padding: 12px 18px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s;
+}
+
+.autocomplete-item:last-child { border-bottom: none; }
+
+.autocomplete-item:hover {
+    background: rgba(99, 102, 241, 0.15);
+    color: #fff;
+}
+
+/* =========================================
+    4. ANALYSIS RESULT BOX
+   ========================================= */
+.result-box {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.result-box h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+/* =========================================
+    5. SECTION HEADERS
+   ========================================= */
+.section-header {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.section-header h3 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-header h3 span { color: #a855f7; }
+
+/* =========================================
+    6. GAME CARDS — desktop grid
+   ========================================= */
+.searched-result-grid {
+    display: grid;
+    grid-template-columns: 280px;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.games-grid-predict {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.game-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.game-card:hover { transform: translateY(-8px); }
+
+.game-card .small-game-box {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    aspect-ratio: 16 / 9;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-card:hover .small-game-box {
+    border-color: #6366f1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.game-card .game-card-info { padding: 10px 4px 4px 4px; }
+
+.game-card .game-card-title {
+    margin: 0 0 4px 0;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-card .game-card-rating {
+    color: #6366f1;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* =========================================
+    7. COMPATIBILITY BADGE
+   ========================================= */
+.compat-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 4px;
+}
+
+.can-run {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.cannot-run {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* =========================================
+    8. UTILITIES & ANIMATIONS
+   ========================================= */
+.hidden { display: none !important; }
+
+@keyframes shimmer {
+    0%  { background-position: 200% 0; }
+    100%{ background-position: -200% 0; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* =========================================
+    9. RESPONSIVE
+   ========================================= */
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+
+    /* Show mobile header with hamburger */
+    .predict-mobile-header { display: flex; }
+
+    .predict-container {
+        padding: 16px;
+    }
+
+    .config-form {
+        /* Better tablet card — centered, max width, proper padding */
+        max-width: 600px;
+        margin: 20px auto 0 auto;
+        padding: 36px 32px;
+        border-radius: 24px;
+    }
+
+    /* Keep 2-column grid on tablet — looks great on iPad */
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .predict-btn {
+        padding: 18px;
+        font-size: 1rem;
+        margin-top: 24px;
+    }
+
+    .games-grid-predict {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .searched-result-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+    }
+
+    .section-header { margin-top: 36px; }
+}
+
+/* ── Tablet narrow (≤ 768px) ── */
+@media (max-width: 768px) {
+
+    .config-form {
+        max-width: 100%;
+        padding: 28px 22px;
+        border-radius: 20px;
+        margin-top: 16px;
+    }
+
+    /* Stack to 1 column on narrow tablet */
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .predict-btn {
+        padding: 16px;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+        margin-top: 20px;
+    }
+
+    .section-header h3 { font-size: 1.3rem; }
+
+    .games-grid-predict {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+}
+
+/* ── Mobile (≤ 480px) — horizontal list cards ── */
+@media (max-width: 480px) {
+
+    .predict-container { padding: 12px; }
+
+    .config-form {
+        padding: 20px 14px;
+        border-radius: 16px;
+        margin-top: 12px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .input-group input {
+        padding: 14px 16px;
+        border-radius: 12px;
+        font-size: 1rem;
+    }
+
+    .predict-btn {
+        padding: 14px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+        margin-top: 16px;
+    }
+
+    .section-header {
+        margin-top: 30px;
+        margin-bottom: 12px;
+    }
+
+    .section-header h3 { font-size: 1.2rem; }
+
+    /* ── Horizontal list cards — matches index.css mobile ── */
+    .games-grid-predict {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding-bottom: 10px;
+    }
+
+    .searched-result-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        grid-template-columns: unset;
+        max-width: 100%;
+    }
+
+    .game-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+        background: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 0 !important;
+        padding: 12px 4px;
+        transition: background 0.15s ease;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .game-card:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .game-card:hover {
+        background: rgba(99, 102, 241, 0.07) !important;
+        transform: none !important;
+    }
+
+    .game-card .small-game-box {
+        width: 82px !important;
+        min-width: 82px !important;
+        height: 82px !important;
+        aspect-ratio: unset !important;
+        border-radius: 10px !important;
+        border: none !important;
+        box-shadow: none !important;
+        flex-shrink: 0;
+        background-position: center;
+        background-size: cover;
+        background-color: #1e293b;
+    }
+
+    .game-card:hover .small-game-box {
+        border-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .game-card .game-card-info {
+        padding: 0;
+        flex: 1;
+        overflow: hidden;
+        min-height: unset;
+    }
+
+    .game-card .game-card-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #e2e8f0;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .game-card .game-card-rating {
+        font-size: 0.85rem;
+        color: #6366f1;
+        margin-bottom: 4px;
+    }
+
+    .compat-badge { font-size: 0.72rem; padding: 2px 7px; }
+
+    .result-box {
+        padding: 18px 14px;
+        border-radius: 16px;
+        margin-top: 20px;
+    }
+
+    .result-box h3 { font-size: 1rem; }
+}
+
+/* ── Very small (≤ 360px) ── */
+@media (max-width: 360px) {
+    .game-card .small-game-box {
+        width: 70px !important;
+        min-width: 70px !important;
+        height: 70px !important;
+    }
+
+    .game-card .game-card-title { font-size: 0.88rem; }
+    .config-form { padding: 16px 12px; }
+    .predict-btn { font-size: 0.85rem; padding: 13px; }
+}

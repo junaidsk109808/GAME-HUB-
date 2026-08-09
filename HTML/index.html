@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>GameHub | Discover & Predict Top Games</title>
+    <meta name="description" content="GameHub is your ultimate gaming dashboard. Discover trending games, top rated titles, new releases, and check if your PC can run them.">
+    <meta name="keywords" content="gaming dashboard, top games, trending games, new games, PC requirements, game ratings, game reviews">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GameHub | Discover & Predict Top Games">
+    <meta property="og:description" content="Discover trending games, top rated titles, new releases, and check if your PC can run them.">
+    <meta property="og:image" content="../assets/og-image.jpg">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/index.css">
+    
+</head>
+<body>
+
+    <aside class="sidebar collapsed" id="sidebar">
+        <button class="sidebar-toggle" id="toggleSidebar">☰</button>
+        <div class="sidebar-top">
+            <a href="profile.htm" class="profile-link">
+                <div class="profile-section">
+                    <div class="profile-pic"></div>
+                    <div class="profile-info">
+                        <p class="welcome-text">WELCOME</p>
+                        <div class="username" id="display-username">PlayerOne</div>
+                    </div>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item active"><span>Home</span></a>
+                <a href="genres.html" class="nav-item"><span>Genres</span></a>
+                <a href="predict.html" class="nav-item"><span>Predict</span></a>
+            </nav>
+        </div>
+        <button class="logout-btn" id="logoutBtn"><span>Logout</span></button>
+    </aside>
+
+    <main class="main-content">
+
+        <!-- Search Header -->
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search games..." aria-label="Search games">
+                <button class="search-btn" aria-label="Search">🔍</button>
+            </div>
+        </header>
+
+        <!-- Trending Carousel -->
+        <section class="page active" aria-label="Trending Games">
+            <div class="header-text">
+                <h1>Trending <span>Games</span></h1>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack"></div>
+                <button class="slider-btn prev" id="prevBtn" aria-label="Previous">❮</button>
+                <button class="slider-btn next" id="nextBtn" aria-label="Next">❯</button>
+            </div>
+        </section>
+
+        <!-- Top Games Section -->
+        <section class="content-section" aria-label="Top Games">
+            <div class="header-text">
+                <h2>Top <span>Games</span></h2>
+            </div>
+            <div class="game-box-row" id="topGamesGrid">
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+            </div>
+        </section>
+
+        <!-- New Games Section -->
+        <section class="content-section" aria-label="New Games">
+            <div class="header-text">
+                <h2>New <span>Games</span></h2>
+            </div>
+            <div class="game-box-row" id="newGamesGrid">
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+                <div class="small-game-box skeleton"></div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-left">
+                <h2 class="footer-logo">GAMING<span>PREDICT</span></h2>
+            </div>
+            <div class="footer-right">
+                <p>&copy; 2026 Gaming Dashboard</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="../JS/sidebar.js"></script>
+    <script src="../JS/index.js"></script>
+</body>
+</html>
